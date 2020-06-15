@@ -3,12 +3,12 @@ require 'spec_helper'
 describe '#exists(key)' do
   before { @key = 'mock-redis-test:45794' }
 
-  it 'returns false for keys that do not exist' do
-    @redises.exists(@key).should == false
+  it 'returns 0 for keys that do not exist' do
+    @redises.exists(@key).should == 0
   end
 
-  it 'returns true for keys that do exist' do
+  it 'returns 1 for keys that do exist' do
     @redises.set(@key, 1)
-    @redises.exists(@key).should == true
+    @redises.exists(@key).should == 1
   end
 end
